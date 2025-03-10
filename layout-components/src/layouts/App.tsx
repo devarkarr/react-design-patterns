@@ -9,7 +9,7 @@ const LeftSide = ({ title }: { title: string }) => {
       <button onClick={() => setActive(true)}>Open Modal</button>
       <h1 style={{ backgroundColor: "red" }}>I am {title}!</h1>
       <Modal opened={active} close={() => setActive(false)}>
-        <div>
+        <div >
           <h1>Hello Modal</h1>
         </div>
       </Modal>

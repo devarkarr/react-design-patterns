@@ -27,7 +27,9 @@ const ModalContent = styled.div`
 const Modal = ({ opened, close, children }: Props) => {
   return (
     <ModalBackground opened={opened} onClick={close}>
-      <ModalContent>{children}</ModalContent>
+      <ModalContent onClick={(e) => e.stopPropagation()}>
+        {children}
+      </ModalContent>
     </ModalBackground>
   );
 };
