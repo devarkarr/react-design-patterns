@@ -4,6 +4,7 @@ import Modal from "./components/modal";
 import UserLoader from "./components/container-components/user-loader";
 import UserInfo from "./components/container-components/user-info";
 import UncontrolledFlow from "./components/uncontrolled-controlled-components/uncontrolled-flow";
+import ControlledFlow from "./components/uncontrolled-controlled-components/controlled-flow";
 
 const LeftSide = ({
   title,
@@ -67,6 +68,8 @@ const StepThree = ({ onNext }: { onNext?: (e: { name: "three" }) => void }) => {
 };
 
 const App = () => {
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [data, setData] = useState<{ name: string }[]>([]);
   return (
     <>
       <SplitScreen leftWidth={1} rightWidth={1}>
@@ -91,6 +94,24 @@ const App = () => {
         <StepTwo />
         <StepThree />
       </UncontrolledFlow>
+
+      <ControlledFlow
+        currentIndex={currentIndex}
+        nextStep={setCurrentIndex}
+        onDone={(d) => {
+          setData(d);
+        }}
+      >
+        <StepOne />
+        <StepTwo />
+        <StepThree />
+      </ControlledFlow>
+
+      <ul>
+        {data.map((d) => (
+          <li key={d.name}>{d.name}</li>
+        ))}
+      </ul>
     </>
   );
 };
