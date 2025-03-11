@@ -3,6 +3,7 @@ import SplitScreen from "./components/split-screen";
 import Modal from "./components/modal";
 import UserLoader from "./components/container-components/user-loader";
 import UserInfo from "./components/container-components/user-info";
+import UncontrolledFlow from "./components/uncontrolled-controlled-components/uncontrolled-flow";
 
 const LeftSide = ({
   title,
@@ -38,20 +39,59 @@ const RightSide = ({
   );
 };
 
+const StepOne = ({ onNext }: { onNext?: (e: { name: string }) => void }) => {
+  return (
+    <div>
+      <h1>Step One</h1>
+      <button onClick={() => onNext({ name: "one" })}>Next</button>
+    </div>
+  );
+};
+
+const StepTwo = ({ onNext }: { onNext?: (e: { name: string }) => void }) => {
+  return (
+    <div>
+      <h1>Step Two</h1>
+      <button onClick={() => onNext({ name: "two" })}>Next</button>
+    </div>
+  );
+};
+
+const StepThree = ({ onNext }: { onNext?: (e: { name: "three" }) => void }) => {
+  return (
+    <div>
+      <h1>Step Three</h1>
+      <button onClick={() => onNext({ name: "three" })}>Next</button>
+    </div>
+  );
+};
+
 const App = () => {
   return (
-    <SplitScreen leftWidth={1} rightWidth={1}>
-      <LeftSide title="Left">
-        <UserLoader resourceUrl="https://fakestoreapi.com/users/2">
-          <UserInfo />
-        </UserLoader>
-      </LeftSide>
-      <RightSide title="Right">
-        <UserLoader resourceUrl="https://fakestoreapi.com/users/4">
-          <UserInfo />
-        </UserLoader>
-      </RightSide>
-    </SplitScreen>
+    <>
+      <SplitScreen leftWidth={1} rightWidth={1}>
+        <LeftSide title="Left">
+          <UserLoader resourceUrl="https://fakestoreapi.com/users/2">
+            <UserInfo />
+          </UserLoader>
+        </LeftSide>
+        <RightSide title="Right">
+          <UserLoader resourceUrl="https://fakestoreapi.com/users/4">
+            <UserInfo />
+          </UserLoader>
+        </RightSide>
+      </SplitScreen>
+
+      <UncontrolledFlow
+        onDone={(data) => {
+          console.log(data);
+        }}
+      >
+        <StepOne />
+        <StepTwo />
+        <StepThree />
+      </UncontrolledFlow>
+    </>
   );
 };
 
