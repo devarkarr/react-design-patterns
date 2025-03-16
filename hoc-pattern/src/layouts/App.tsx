@@ -5,6 +5,10 @@ import UserLoader from "./components/container-components/user-loader";
 import UserInfo from "./components/container-components/user-info";
 import UncontrolledFlow from "./components/uncontrolled-controlled-components/uncontrolled-flow";
 import ControlledFlow from "./components/uncontrolled-controlled-components/controlled-flow";
+import AuthenticatedDashboard, {
+  Dashboard,
+  withAuth,
+} from "./components/hoc/Auth";
 
 const LeftSide = ({
   title,
@@ -70,6 +74,9 @@ const StepThree = ({ onNext }: { onNext?: (e: { name: "three" }) => void }) => {
 const App = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [data, setData] = useState<{ name: string }[]>([]);
+
+  const AuthenticatedDashboard = withAuth(Dashboard);
+
   return (
     <>
       <SplitScreen leftWidth={1} rightWidth={1}>
@@ -112,6 +119,7 @@ const App = () => {
           <li key={d.name}>{d.name}</li>
         ))}
       </ul>
+      <AuthenticatedDashboard />
     </>
   );
 };
