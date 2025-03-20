@@ -13,6 +13,7 @@ import useMediaQuery from "../hooks/useMediaQuery";
 import RecursiveComponent from "./components/recursive-component/recursive-component";
 import TreeNode from "./components/recursive-component/tree-data-recursive-component";
 import CompositionComponent from "./components/composition-components/compositioin-component";
+import PartialComponent from "./components/partial-components/partial-component";
 
 const LeftSide = ({
   title,
@@ -97,6 +98,7 @@ const App = () => {
           </UserLoader>
           <TreeNode node={treeData} />
           <CompositionComponent />
+          <PartialComponent />
         </RightSide>
       </SplitScreen>
 
