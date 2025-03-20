@@ -12,6 +12,7 @@ import AuthenticatedDashboard, {
 import useMediaQuery from "../hooks/useMediaQuery";
 import RecursiveComponent from "./components/recursive-component/recursive-component";
 import TreeNode from "./components/recursive-component/tree-data-recursive-component";
+import CompositionComponent from "./components/composition-components/compositioin-component";
 
 const LeftSide = ({
   title,
@@ -95,6 +96,7 @@ const App = () => {
             <UserInfo />
           </UserLoader>
           <TreeNode node={treeData} />
+          <CompositionComponent />
         </RightSide>
       </SplitScreen>
 
