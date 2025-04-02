@@ -16,6 +16,7 @@ import CompositionComponent from "./components/composition-components/compositio
 import PartialComponent from "./components/partial-components/partial-component";
 import CompoundPattern from "./components/compound-pattern/compound-pattern";
 import ObserverPattern from "./components/observer-pattern/observer-pattern";
+import ReactPortal from "./components/react-portal/react-portal";
 
 const LeftSide = ({
   title,
@@ -103,6 +104,7 @@ const App = () => {
           <PartialComponent />
           <CompoundPattern />
           <ObserverPattern />
+          <ReactPortal />
         </RightSide>
       </SplitScreen>
 
