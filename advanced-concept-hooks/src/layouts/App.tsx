@@ -17,6 +17,7 @@ import PartialComponent from "./components/partial-components/partial-component"
 import CompoundPattern from "./components/compound-pattern/compound-pattern";
 import ObserverPattern from "./components/observer-pattern/observer-pattern";
 import ReactPortal from "./components/react-portal/react-portal";
+import Search from "./components/useDeferred/search";
 
 const LeftSide = ({
   title,
@@ -105,6 +106,7 @@ const App = () => {
           <CompoundPattern />
           <ObserverPattern />
           <ReactPortal />
+          <Search />
         </RightSide>
       </SplitScreen>
 
