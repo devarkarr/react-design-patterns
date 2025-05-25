@@ -28,7 +28,7 @@ function ErrorBoundary({
 }
 
 const ProductList = () => {
-  // const products = use(getProducts());
+  const products = use(getProducts());
   console.log(products);
   return <div>hu</div>;
 };
