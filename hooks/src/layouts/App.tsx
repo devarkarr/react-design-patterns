@@ -1,7 +1,8 @@
+import UseCallback from "./components/hooks/use-callback";
 import UserMemo from "./components/hooks/use-memo";
 
 const App = () => {
-  return <UserMemo />;
+  return <UseCallback />;
 };
 
 export default App;
